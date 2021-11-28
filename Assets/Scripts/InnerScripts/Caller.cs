@@ -36,7 +36,7 @@ namespace VRTK.Examples
         protected virtual void ButtonTwoPressed(object sender, ControllerInteractionEventArgs e)
         {
             state = !state;
-            Move();
+            // Move();
             SetObjectVisibility();
         }
 
@@ -48,7 +48,7 @@ namespace VRTK.Examples
             {
                 transform.position = new Vector3(headset.position.x, playArea.position.y, headset.position.z);
                 controlObject.transform.localPosition = headset.forward * 0.5f;
-                controlObject.transform.localPosition = new Vector3(controlObject.transform.localPosition.x, 0f, controlObject.transform.localPosition.z);
+                controlObject.transform.localPosition = new Vector3(controlObject.transform.localPosition.x, controlObject.GetComponent<Renderer>().bounds.size.y, controlObject.transform.localPosition.z);
                 Vector3 targetPosition = headset.position;
                 targetPosition.y = playArea.transform.position.y;
                 controlObject.transform.LookAt(targetPosition);
