@@ -47,7 +47,7 @@ namespace VRTK.Examples
             if (playArea != null && headset != null)
             {
                 transform.position = new Vector3(headset.position.x, headset.position.y, headset.position.z);
-                controlObject.transform.localPosition = headset.forward * 0.5f;
+                controlObject.transform.localPosition = headset.forward * 3.0f;
                 controlObject.transform.localPosition = new Vector3(controlObject.transform.localPosition.x, 0f, controlObject.transform.localPosition.z);
                 Vector3 targetPosition = headset.position;
                 targetPosition.y = playArea.transform.position.y;
