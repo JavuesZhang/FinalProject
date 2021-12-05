@@ -1,13 +1,13 @@
-﻿/*
+/*
  * @Author: gsd 
  * @Date: 2021-11-27 17:08:25 
  * @Last Modified by: jadizhang
  * @Last Modified time: 2021-11-27 17:31:06
  */
-
 namespace VRTK.Examples
 {
     using UnityEngine;
+    using UnityEngine.UI;
 
     public class Caller : MonoBehaviour
     {
@@ -36,7 +36,7 @@ namespace VRTK.Examples
         protected virtual void ButtonTwoPressed(object sender, ControllerInteractionEventArgs e)
         {
             state = !state;
-            // Move();
+            Move();
             SetObjectVisibility();
         }
 
@@ -46,13 +46,13 @@ namespace VRTK.Examples
             Transform headset = VRTK_DeviceFinder.HeadsetTransform();
             if (playArea != null && headset != null)
             {
-                transform.position = new Vector3(headset.position.x, playArea.position.y, headset.position.z);
+                transform.position = new Vector3(headset.position.x, headset.position.y, headset.position.z);
                 controlObject.transform.localPosition = headset.forward * 0.5f;
-                controlObject.transform.localPosition = new Vector3(controlObject.transform.localPosition.x, controlObject.GetComponent<Renderer>().bounds.size.y, controlObject.transform.localPosition.z);
+                controlObject.transform.localPosition = new Vector3(controlObject.transform.localPosition.x, 0f, controlObject.transform.localPosition.z);
                 Vector3 targetPosition = headset.position;
                 targetPosition.y = playArea.transform.position.y;
                 controlObject.transform.LookAt(targetPosition);
-                controlObject.transform.localEulerAngles = new Vector3(0f, controlObject.transform.localEulerAngles.y, 0f);
+                controlObject.transform.localEulerAngles = new Vector3(0f, controlObject.transform.localEulerAngles.y + 180, 0f);
             }
         }
 
