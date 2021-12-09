@@ -1,182 +1,464 @@
 fileFormatVersion: 2
-guid: 7465c18deb1331946bbe2286c626706e
+guid: 2ba306283be44b646a0587cc94997a74
 ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: CJG_L_C
-    100002: CJG_L_D
-    100004: CJG_M_C
-    100006: CJG_M_D
-    100008: CJG_S_C
-    100010: CJG_S_D
-    100012: //RootNode
-    100014: GJX_GU_GD
-    100016: GJX_V1
-    100018: gongjuxiang_ban
-    100020: gongjuxiang_ban 1
-    100022: gongjuxiang_ban2
-    100024: gongjuxiang_ban2 1
-    100026: gongjuxiang_down
-    100028: gongjuxiang_up
-    100030: gongjuxiang_wenzi
-    100032: gongjuxiang_zhuanzhou
-    100034: JiLunBanShou_L
-    100036: JiLunBanShou_M
-    100038: JiLunBanShou_S
-    100040: LJTT_L_013
-    100042: LJTT_L_014
-    100044: LJTT_L_015
-    100046: LJTT_L_016
-    100048: LJTT_L_017
-    100050: LJTT_L_018
-    100052: LJTT_L_019
-    100054: LJTT_L_020
-    100056: LJTT_L_021
-    100058: LJTT_L_022
-    100060: LJTT_L_024
-    100062: LJTT_L_027
-    100064: LJTT_L_030
-    100066: LJTT_L_032
-    100068: LJTT_M_009
-    100070: LJTT_M_010
-    100072: LJTT_M_011
-    100074: LJTT_M_012
-    100076: LJTT_M_013
-    100078: LJTT_M_014
-    100080: LJTT_M_015
-    100082: LJTT_M_016
-    100084: LJTT_M_017
-    100086: LJTT_M_018
-    100088: LJTT_M_019
-    100090: LJTT_S_004
-    100092: LJTT_S_005
-    100094: LJTT_S_006
-    100096: LJTT_S_007
-    100098: LJTT_S_008
-    100100: LJTT_S_009
-    100102: LJTT_S_010
-    100104: LJTT_S_011
-    100106: LJTT_S_012
-    100108: LJTT_S_013
-    100110: NiuLIBanShou_L_ShuXian
-    100112: NiuLIBanShou_M_ShuXian
-    100114: NiuLIBanShou_S_ShuXian
-    400000: CJG_L_C
-    400002: CJG_L_D
-    400004: CJG_M_C
-    400006: CJG_M_D
-    400008: CJG_S_C
-    400010: CJG_S_D
-    400012: //RootNode
-    400014: GJX_GU_GD
-    400016: GJX_V1
-    400018: gongjuxiang_ban
-    400020: gongjuxiang_ban 1
-    400022: gongjuxiang_ban2
-    400024: gongjuxiang_ban2 1
-    400026: gongjuxiang_down
-    400028: gongjuxiang_up
-    400030: gongjuxiang_wenzi
-    400032: gongjuxiang_zhuanzhou
-    400034: JiLunBanShou_L
-    400036: JiLunBanShou_M
-    400038: JiLunBanShou_S
-    400040: LJTT_L_013
-    400042: LJTT_L_014
-    400044: LJTT_L_015
-    400046: LJTT_L_016
-    400048: LJTT_L_017
-    400050: LJTT_L_018
-    400052: LJTT_L_019
-    400054: LJTT_L_020
-    400056: LJTT_L_021
-    400058: LJTT_L_022
-    400060: LJTT_L_024
-    400062: LJTT_L_027
-    400064: LJTT_L_030
-    400066: LJTT_L_032
-    400068: LJTT_M_009
-    400070: LJTT_M_010
-    400072: LJTT_M_011
-    400074: LJTT_M_012
-    400076: LJTT_M_013
-    400078: LJTT_M_014
-    400080: LJTT_M_015
-    400082: LJTT_M_016
-    400084: LJTT_M_017
-    400086: LJTT_M_018
-    400088: LJTT_M_019
-    400090: LJTT_S_004
-    400092: LJTT_S_005
-    400094: LJTT_S_006
-    400096: LJTT_S_007
-    400098: LJTT_S_008
-    400100: LJTT_S_009
-    400102: LJTT_S_010
-    400104: LJTT_S_011
-    400106: LJTT_S_012
-    400108: LJTT_S_013
-    400110: NiuLIBanShou_L_ShuXian
-    400112: NiuLIBanShou_M_ShuXian
-    400114: NiuLIBanShou_S_ShuXian
-    2300000: gongjuxiang_ban
-    2300002: gongjuxiang_ban 1
-    2300004: gongjuxiang_ban2
-    2300006: gongjuxiang_ban2 1
-    2300008: gongjuxiang_down
-    2300010: gongjuxiang_up
-    2300012: gongjuxiang_wenzi
-    2300014: gongjuxiang_zhuanzhou
-    3300000: gongjuxiang_ban
-    3300002: gongjuxiang_ban 1
-    3300004: gongjuxiang_ban2
-    3300006: gongjuxiang_ban2 1
-    3300008: gongjuxiang_down
-    3300010: gongjuxiang_up
-    3300012: gongjuxiang_wenzi
-    3300014: gongjuxiang_zhuanzhou
-    4300000: gongjuxiang_zhuanzhou
-    4300002: gongjuxiang_up
-    4300004: gongjuxiang_down
-    4300006: gongjuxiang_ban2
-    4300008: gongjuxiang_ban
-    4300010: gongjuxiang_ban2
-    4300012: gongjuxiang_ban
-    4300014: gongjuxiang_wenzi
-    9500000: //RootNode
+  serializedVersion: 19300
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: CJG_L_C
+  - first:
+      1: 100002
+    second: CJG_L_D
+  - first:
+      1: 100004
+    second: CJG_M_C
+  - first:
+      1: 100006
+    second: CJG_M_D
+  - first:
+      1: 100008
+    second: CJG_S_C
+  - first:
+      1: 100010
+    second: CJG_S_D
+  - first:
+      1: 100012
+    second: //RootNode
+  - first:
+      1: 100014
+    second: GJX_GU_GD
+  - first:
+      1: 100016
+    second: GJX_V1
+  - first:
+      1: 100018
+    second: gongjuxiang_ban
+  - first:
+      1: 100020
+    second: gongjuxiang_ban 1
+  - first:
+      1: 100022
+    second: gongjuxiang_ban2
+  - first:
+      1: 100024
+    second: gongjuxiang_ban2 1
+  - first:
+      1: 100026
+    second: gongjuxiang_down
+  - first:
+      1: 100028
+    second: gongjuxiang_up
+  - first:
+      1: 100030
+    second: gongjuxiang_wenzi
+  - first:
+      1: 100032
+    second: gongjuxiang_zhuanzhou
+  - first:
+      1: 100034
+    second: JiLunBanShou_L
+  - first:
+      1: 100036
+    second: JiLunBanShou_M
+  - first:
+      1: 100038
+    second: JiLunBanShou_S
+  - first:
+      1: 100040
+    second: LJTT_L_013
+  - first:
+      1: 100042
+    second: LJTT_L_014
+  - first:
+      1: 100044
+    second: LJTT_L_015
+  - first:
+      1: 100046
+    second: LJTT_L_016
+  - first:
+      1: 100048
+    second: LJTT_L_017
+  - first:
+      1: 100050
+    second: LJTT_L_018
+  - first:
+      1: 100052
+    second: LJTT_L_019
+  - first:
+      1: 100054
+    second: LJTT_L_020
+  - first:
+      1: 100056
+    second: LJTT_L_021
+  - first:
+      1: 100058
+    second: LJTT_L_022
+  - first:
+      1: 100060
+    second: LJTT_L_024
+  - first:
+      1: 100062
+    second: LJTT_L_027
+  - first:
+      1: 100064
+    second: LJTT_L_030
+  - first:
+      1: 100066
+    second: LJTT_L_032
+  - first:
+      1: 100068
+    second: LJTT_M_009
+  - first:
+      1: 100070
+    second: LJTT_M_010
+  - first:
+      1: 100072
+    second: LJTT_M_011
+  - first:
+      1: 100074
+    second: LJTT_M_012
+  - first:
+      1: 100076
+    second: LJTT_M_013
+  - first:
+      1: 100078
+    second: LJTT_M_014
+  - first:
+      1: 100080
+    second: LJTT_M_015
+  - first:
+      1: 100082
+    second: LJTT_M_016
+  - first:
+      1: 100084
+    second: LJTT_M_017
+  - first:
+      1: 100086
+    second: LJTT_M_018
+  - first:
+      1: 100088
+    second: LJTT_M_019
+  - first:
+      1: 100090
+    second: LJTT_S_004
+  - first:
+      1: 100092
+    second: LJTT_S_005
+  - first:
+      1: 100094
+    second: LJTT_S_006
+  - first:
+      1: 100096
+    second: LJTT_S_007
+  - first:
+      1: 100098
+    second: LJTT_S_008
+  - first:
+      1: 100100
+    second: LJTT_S_009
+  - first:
+      1: 100102
+    second: LJTT_S_010
+  - first:
+      1: 100104
+    second: LJTT_S_011
+  - first:
+      1: 100106
+    second: LJTT_S_012
+  - first:
+      1: 100108
+    second: LJTT_S_013
+  - first:
+      1: 100110
+    second: NiuLIBanShou_L_ShuXian
+  - first:
+      1: 100112
+    second: NiuLIBanShou_M_ShuXian
+  - first:
+      1: 100114
+    second: NiuLIBanShou_S_ShuXian
+  - first:
+      4: 400000
+    second: CJG_L_C
+  - first:
+      4: 400002
+    second: CJG_L_D
+  - first:
+      4: 400004
+    second: CJG_M_C
+  - first:
+      4: 400006
+    second: CJG_M_D
+  - first:
+      4: 400008
+    second: CJG_S_C
+  - first:
+      4: 400010
+    second: CJG_S_D
+  - first:
+      4: 400012
+    second: //RootNode
+  - first:
+      4: 400014
+    second: GJX_GU_GD
+  - first:
+      4: 400016
+    second: GJX_V1
+  - first:
+      4: 400018
+    second: gongjuxiang_ban
+  - first:
+      4: 400020
+    second: gongjuxiang_ban 1
+  - first:
+      4: 400022
+    second: gongjuxiang_ban2
+  - first:
+      4: 400024
+    second: gongjuxiang_ban2 1
+  - first:
+      4: 400026
+    second: gongjuxiang_down
+  - first:
+      4: 400028
+    second: gongjuxiang_up
+  - first:
+      4: 400030
+    second: gongjuxiang_wenzi
+  - first:
+      4: 400032
+    second: gongjuxiang_zhuanzhou
+  - first:
+      4: 400034
+    second: JiLunBanShou_L
+  - first:
+      4: 400036
+    second: JiLunBanShou_M
+  - first:
+      4: 400038
+    second: JiLunBanShou_S
+  - first:
+      4: 400040
+    second: LJTT_L_013
+  - first:
+      4: 400042
+    second: LJTT_L_014
+  - first:
+      4: 400044
+    second: LJTT_L_015
+  - first:
+      4: 400046
+    second: LJTT_L_016
+  - first:
+      4: 400048
+    second: LJTT_L_017
+  - first:
+      4: 400050
+    second: LJTT_L_018
+  - first:
+      4: 400052
+    second: LJTT_L_019
+  - first:
+      4: 400054
+    second: LJTT_L_020
+  - first:
+      4: 400056
+    second: LJTT_L_021
+  - first:
+      4: 400058
+    second: LJTT_L_022
+  - first:
+      4: 400060
+    second: LJTT_L_024
+  - first:
+      4: 400062
+    second: LJTT_L_027
+  - first:
+      4: 400064
+    second: LJTT_L_030
+  - first:
+      4: 400066
+    second: LJTT_L_032
+  - first:
+      4: 400068
+    second: LJTT_M_009
+  - first:
+      4: 400070
+    second: LJTT_M_010
+  - first:
+      4: 400072
+    second: LJTT_M_011
+  - first:
+      4: 400074
+    second: LJTT_M_012
+  - first:
+      4: 400076
+    second: LJTT_M_013
+  - first:
+      4: 400078
+    second: LJTT_M_014
+  - first:
+      4: 400080
+    second: LJTT_M_015
+  - first:
+      4: 400082
+    second: LJTT_M_016
+  - first:
+      4: 400084
+    second: LJTT_M_017
+  - first:
+      4: 400086
+    second: LJTT_M_018
+  - first:
+      4: 400088
+    second: LJTT_M_019
+  - first:
+      4: 400090
+    second: LJTT_S_004
+  - first:
+      4: 400092
+    second: LJTT_S_005
+  - first:
+      4: 400094
+    second: LJTT_S_006
+  - first:
+      4: 400096
+    second: LJTT_S_007
+  - first:
+      4: 400098
+    second: LJTT_S_008
+  - first:
+      4: 400100
+    second: LJTT_S_009
+  - first:
+      4: 400102
+    second: LJTT_S_010
+  - first:
+      4: 400104
+    second: LJTT_S_011
+  - first:
+      4: 400106
+    second: LJTT_S_012
+  - first:
+      4: 400108
+    second: LJTT_S_013
+  - first:
+      4: 400110
+    second: NiuLIBanShou_L_ShuXian
+  - first:
+      4: 400112
+    second: NiuLIBanShou_M_ShuXian
+  - first:
+      4: 400114
+    second: NiuLIBanShou_S_ShuXian
+  - first:
+      23: 2300000
+    second: gongjuxiang_ban
+  - first:
+      23: 2300002
+    second: gongjuxiang_ban 1
+  - first:
+      23: 2300004
+    second: gongjuxiang_ban2
+  - first:
+      23: 2300006
+    second: gongjuxiang_ban2 1
+  - first:
+      23: 2300008
+    second: gongjuxiang_down
+  - first:
+      23: 2300010
+    second: gongjuxiang_up
+  - first:
+      23: 2300012
+    second: gongjuxiang_wenzi
+  - first:
+      23: 2300014
+    second: gongjuxiang_zhuanzhou
+  - first:
+      33: 3300000
+    second: gongjuxiang_ban
+  - first:
+      33: 3300002
+    second: gongjuxiang_ban 1
+  - first:
+      33: 3300004
+    second: gongjuxiang_ban2
+  - first:
+      33: 3300006
+    second: gongjuxiang_ban2 1
+  - first:
+      33: 3300008
+    second: gongjuxiang_down
+  - first:
+      33: 3300010
+    second: gongjuxiang_up
+  - first:
+      33: 3300012
+    second: gongjuxiang_wenzi
+  - first:
+      33: 3300014
+    second: gongjuxiang_zhuanzhou
+  - first:
+      43: 4300000
+    second: gongjuxiang_zhuanzhou
+  - first:
+      43: 4300002
+    second: gongjuxiang_up
+  - first:
+      43: 4300004
+    second: gongjuxiang_down
+  - first:
+      43: 4300006
+    second: gongjuxiang_ban2
+  - first:
+      43: 4300008
+    second: gongjuxiang_ban
+  - first:
+      43: 4300010
+    second: gongjuxiang_ban2
+  - first:
+      43: 4300012
+    second: gongjuxiang_ban
+  - first:
+      43: 4300014
+    second: gongjuxiang_wenzi
+  - first:
+      95: 9500000
+    second: //RootNode
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: GJX_01
-    second: {fileID: 2100000, guid: ef9bb2443b25db6459cef732c0158ebc, type: 2}
+    second: {fileID: 2100000, guid: 7d9342e7f60787d43a361a146e724d50, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: GJX_02
-    second: {fileID: 2100000, guid: 0af3d777883a0ae4eaef6547b52d7bc6, type: 2}
+    second: {fileID: 2100000, guid: c854b9ce24b76cf42852fa34ab6b6cb5, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: GJX_03
-    second: {fileID: 2100000, guid: 946e0e15d712c4d44888338e3cc33186, type: 2}
+    second: {fileID: 2100000, guid: ae588c71e79fb85428abbecf10c69564, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: GJX_04
-    second: {fileID: 2100000, guid: 70559c42f8da54e4aad589d33503de58, type: 2}
+    second: {fileID: 2100000, guid: 46ff9515198321642a3af53c4fb27f09, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: GJX_05
-    second: {fileID: 2100000, guid: 85e7419cbf96e5c40969bb03e55ba049, type: 2}
+    second: {fileID: 2100000, guid: 98b74b89100684646af8ccaadd175615, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: GJX_WENZI_TT_01
-    second: {fileID: 2100000, guid: 0edf46a238b36a743b47634baf5b1da6, type: 2}
+    second: {fileID: 2100000, guid: ec09ea977f51ac946b28e235de90e0e5, type: 2}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 1
     materialSearch: 1
     materialLocation: 0
@@ -209,6 +491,7 @@ ModelImporter:
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -216,18 +499,19 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 0.01
-    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -236,10 +520,10 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -249,13 +533,16 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
+  avatarSetup: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
