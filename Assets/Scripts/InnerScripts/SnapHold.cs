@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using UnityEngine;
     using Highlighters;
+    using VRTK.Controllables.ArtificialBased;
     // [ExecuteInEditMode]
     public class SnapHold : MonoBehaviour
     {
@@ -13,6 +14,8 @@
         public Color highlightColor = Color.clear;
         [Tooltip("If this is checked then the drop zone highlight section will be displayed in the scene editor window.")]
         public bool displayDropZoneInEditor = true;
+        [Tooltip("If this is checked then grip should be held down to snap object to the zone.")]
+        public bool isTool = true;
         [Tooltip("A specified VRTK_PolicyList to use to determine which interactable objects will be snapped to the snap drop zone on release.")]
         public VRTK_PolicyList validObjectListPolicy;
 
@@ -46,6 +49,14 @@
             {
                 // ChooseDestroyType(transform.Find(ObjectPath(HIGHLIGHT_EDITOR_OBJECT_NAME)));
                 // highlightEditorObject = null;
+                if(GameObject.Find("LeftControllerScriptAlias") != null)
+                {
+                    leftController = GameObject.Find("LeftControllerScriptAlias").GetComponentInChildren<VRTK_ControllerEvents>();
+                }
+                if(GameObject.Find("RightControllerScriptAlias") != null)
+                {
+                    rightController = GameObject.Find("RightControllerScriptAlias").GetComponentInChildren<VRTK_ControllerEvents>();
+                }
                 GenerateHighlightObjects();
                 if (highlightObject != null && objectHighlighter == null)
                 {
@@ -57,7 +68,7 @@
 
         protected virtual void Update()
         {
-            CreateHighlightersInEditor();
+            // CreateHighlightersInEditor();
         }
         
         protected virtual void ChooseDestroyType(Transform deleteTransform)
@@ -70,6 +81,7 @@
 
         protected virtual void ChooseDestroyType(GameObject deleteObject)
         {
+            Debug.Log("Destroy: "+deleteObject.name);
             if (VRTK_SharedMethods.IsEditTime())
             {
                 if (deleteObject != null)
@@ -89,16 +101,16 @@
         #region Highlight
         protected virtual void CreateHighlightersInEditor()
         {
-            // if (VRTK_SharedMethods.IsEditTime())
-            // {
-            //     GenerateHighlightObjects();
+            if (VRTK_SharedMethods.IsEditTime())
+            {
+                GenerateHighlightObjects();
 
-            //     GenerateEditorHighlightObject();
-            //     if (highlightEditorObject != null)
-            //     {
-            //         highlightEditorObject.SetActive(displayDropZoneInEditor);
-            //     }
-            // }
+                GenerateEditorHighlightObject();
+                if (highlightEditorObject != null)
+                {
+                    highlightEditorObject.SetActive(displayDropZoneInEditor);
+                }
+            }
         }
 
         protected virtual void GenerateEditorHighlightObject()
@@ -128,7 +140,13 @@
             if (checkForChild != null && highlightObject == null)
             {
                 highlightObject = checkForChild.gameObject;
+                
             }
+            // VRTK_ArtificialRotator rotator = highlightObject.GetComponentInChildren<VRTK_ArtificialRotator>();
+            // if(rotator != null)
+            // {
+            //     rotator.enabled = false; //不知道为何如果生效的话，会使得物体直接销毁
+            // }
 
             DisableHighlightShadows();
             SetHighlightObjectActive(false);
@@ -148,6 +166,7 @@
             clonedObject.transform.localRotation = Quaternion.identity;
 
             transform.localScale = saveScale;
+            Debug.Log("CopyObject");
         }
 
         protected virtual void GenerateContainer()
@@ -177,9 +196,11 @@
 
         protected virtual void SetHighlightObjectActive(bool state)
         {
+            Debug.Log("SetActive?");
             if (highlightObject != null)
             {
                 highlightObject.SetActive(state);
+                Debug.Log("SetActive:"+state);
                 isHighlighted = state;
             }
         }
@@ -226,12 +247,13 @@
     
         private void OnTriggerEnter(Collider collider)
         {
+            // Debug.Log(collider.gameObject.name);
             if(collider.gameObject.CompareTag("Tool"))
             {
+                // Debug.Log("inner: "+collider.gameObject.name);
                 currentInteractObject = collider.GetComponentInParent<VRTK_InteractableObject>();
                 CheckCanSnapHold(currentInteractObject);
             }
-            // SetHighlightObjectActive(true);
         }
 
         private void OnTriggerExit(Collider collider)
@@ -241,7 +263,6 @@
                 currentInteractObject = collider.GetComponentInParent<VRTK_InteractableObject>();
                 CheckCanUnSnapHold(currentInteractObject);
             }
-            // SetHighlightObjectActive(true);
         }
 
         protected virtual void CheckCanSnapHold(VRTK_InteractableObject interactableObjectCheck)
@@ -280,19 +301,59 @@
 
         protected virtual void AddHoldEvent()
         {
-            leftController.GripPressed += HoldObject;
-            rightController.GripPressed += HoldObject;
-            leftController.GripReleased += UnholdObject;
-            rightController.GripReleased += UnholdObject;
+            if(isTool)
+            {
+                if(leftController != null)
+                {
+                    leftController.GripPressed += HoldObject;
+                    leftController.GripReleased += UnholdObject;
+                }
+                if(rightController != null)
+                {
+                    rightController.GripPressed += HoldObject;
+                    rightController.GripReleased += UnholdObject;
+                }
+            }
+            else
+            {
+                if(leftController != null)
+                {
+                    leftController.GripClicked += HoldObject;
+                }
+                if(rightController != null)
+                {
+                    rightController.GripClicked += HoldObject;
+                }
+            }
             Debug.Log("AddHoldEvent");
         }
 
         protected virtual void RemoveHoldEvent()
         {
-            leftController.GripPressed -= HoldObject;
-            rightController.GripPressed -= HoldObject;
-            leftController.GripReleased -= UnholdObject;
-            rightController.GripReleased -= UnholdObject;
+            if(isTool)
+            {
+                if(leftController != null)
+                {
+                    leftController.GripPressed -= HoldObject;
+                    leftController.GripReleased -= UnholdObject;
+                }
+                if(rightController != null)
+                {
+                    rightController.GripPressed -= HoldObject;
+                    rightController.GripReleased -= UnholdObject;
+                }
+            }
+            else
+            {
+                if(leftController != null)
+                {
+                    leftController.GripClicked -= HoldObject;
+                }
+                if(rightController != null)
+                {
+                    rightController.GripClicked -= HoldObject;
+                }
+            }
             Debug.Log("RemoveHoldEvent");
         }
 
@@ -311,6 +372,11 @@
             Debug.Log("Ungrab");
             CheckCanUnSnapHold(currentSnappedObject);
             CheckCanSnapHold(currentSnappedObject);
+            SnapObjectBase snapObject = currentInteractObject.gameObject.GetComponent<SnapObjectBase>();
+            if(snapObject != null)
+            {
+                snapObject.OnUnsnapped();
+            }
         }
 
         protected virtual IEnumerator AttemptForceSnapAtEndOfFrame(VRTK_InteractableObject currentInteractObject)
@@ -318,13 +384,25 @@
             yield return new WaitForEndOfFrame();
             SaveCurrentState();
             AttemptForceSnap(currentInteractObject);
+            // Debug.Log("AttemptForceSnap"+currentInteractObject.gameObject.name);
+            if(!isTool){
+                RemoveHoldEvent();
+            }
+            SnapObjectBase snapObject = currentInteractObject.gameObject.GetComponent<SnapObjectBase>();
+            if(snapObject != null)
+            {
+                snapObject.OnSnapped();
+            }
         }
 
         protected virtual void SaveCurrentState()
         {
-            prevParent = currentInteractObject.transform.parent;
-            prevPosition = currentInteractObject.transform.localPosition;
-            prevRotation = currentInteractObject.transform.localRotation;
+            if(currentInteractObject != null)
+            {
+                prevParent = currentInteractObject.transform.parent;
+                prevPosition = currentInteractObject.transform.localPosition;
+                prevRotation = currentInteractObject.transform.localRotation;
+            }
         }
 
         protected virtual void RecoverPreviousState()
@@ -341,6 +419,12 @@
             willSnap = true;
             //Force touch one of the object's colliders on this trigger collider
             SnapObjectToZone(objectToSnap);
+            // transform.GetComponentInChildren<Collider>().enabled = false;
+            // Collider[] colliders = currentSnappedObject.transform.GetComponentsInChildren<Collider>();
+            // foreach (Collider collider in colliders)
+            // {
+            //     collider.enabled = true;
+            // }
         }
 
         protected virtual void SnapObjectToZone(VRTK_InteractableObject objectToSnap)

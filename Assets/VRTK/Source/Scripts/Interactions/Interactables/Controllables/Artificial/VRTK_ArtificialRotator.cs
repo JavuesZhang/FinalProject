@@ -211,6 +211,7 @@ namespace VRTK.Controllables.ArtificialBased
 
         protected override void OnEnable()
         {
+            // Debug.Log("OnEnable artificial rotator");
             SetValue(storedValue);
 
             ResetParentContainer();
