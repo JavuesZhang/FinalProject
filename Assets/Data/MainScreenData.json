@@ -4,52 +4,15 @@
             "title": "a",
             "images":[
                 {
-                    "path": "a",
-                    "x":123,
-                    "y":32
-                },
-                {
-                    "path": "ba",
-                    "x":888,
-                    "y":777
+                    "path": "MainScreen+Image/test"
                 }
 
             ],
-            "texts":[]
-        },
-        {
-            "title": "b",
-            "images":[
+            "texts":[
                 {
-                    "path": "a",
-                    "x":123,
-                    "y":32
-                },
-                {
-                    "path": "ba",
-                    "x":888,
-                    "y":777
+                    "path": "/Data/MainScreen+Text/test.txt"
                 }
-
-            ],
-            "texts":[]
-        },
-        {
-            "title": "c",
-            "images":[
-                {
-                    "path": "a",
-                    "x":123,
-                    "y":32
-                },
-                {
-                    "path": "ba",
-                    "x":888,
-                    "y":777
-                }
-
-            ],
-            "texts":[]
+            ]
         }
     ]
 }
