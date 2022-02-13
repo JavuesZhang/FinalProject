@@ -1,0 +1,49 @@
+{
+    "pages": [
+        {
+            "title": "更换电池管理器",
+            "sections": [
+                {
+                    "title": "拆卸蓄电池负极",
+                    "totalScore": 20,
+                    "records": [
+                        "拆卸蓄电池负极拆卸蓄电池负极拆卸",
+                        "拆下蓄电池负极123"
+                    ],
+                    "errors": [
+                        {
+                            "index": 2,
+                            "description": "用错",
+                            "punishment": -20.0
+                        }
+                    ]
+                },
+                {
+                    "title": "拆卸中央扶手箱",
+                    "totalScore": 20,
+                    "records": [
+                        "拆卸中央1",
+                        "拆卸中央2"
+                    ],
+                    "errors": [
+                    ]
+                },
+                {
+                    "title": "拆卸中央扶手箱子子",
+                    "totalScore": 12,
+                    "records": [
+                        "拆卸中央1",
+                        "拆卸中央2"
+                    ],
+                    "errors": [
+                        {
+                            "index": 1,
+                            "description": "没做",
+                            "punishment": -10.2
+                        }
+                    ] 
+                }
+            ]
+        }
+    ]
+}

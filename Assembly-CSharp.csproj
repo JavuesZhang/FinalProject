@@ -212,6 +212,7 @@
      <Compile Include="Assets\Scripts\InnerScripts\ZhiJiaRotator.cs" />
      <Compile Include="Assets\Scripts\MainScreen\MainScreenScript.cs" />
      <Compile Include="Assets\Scripts\MainScreen\OperationStepsScript.cs" />
+     <Compile Include="Assets\Scripts\MainScreen\RecordTableScript.cs" />
      <Compile Include="Assets\Scripts\TempScript\AddScriptViaStringTest.cs" />
      <Compile Include="Assets\Scripts\TempScript\LanguageTest.cs" />
      <Compile Include="Assets\Scripts\TempScript\PrintLocation.cs" />

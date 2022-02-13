@@ -25,6 +25,11 @@ public class OperationStepsScript : MonoBehaviour
     public GameObject Content;
     private OperationPages obj;
     private List<GameObject> steps;
+
+    // isOperate表示给的UI设计图的右图。默认为false，左图
+    public bool isOperate = false;
+
+    private bool lastDone = false;
     
     private int curPage = 0;
 
@@ -64,7 +69,6 @@ public class OperationStepsScript : MonoBehaviour
             tmpStep.GetComponentInChildren<Text>().text = (i+1).ToString() + ". " + obj.pages[index].steps[i].name;
             Debug.Log(obj.pages[index].steps[i].name);
             checkStepState(tmpStep, obj.pages[index].steps[i].done);
-
             tmpStep.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, -30 - (50) * i);
             steps.Add(tmpStep);
         }
@@ -81,20 +85,41 @@ public class OperationStepsScript : MonoBehaviour
                 item.text = doneCount.ToString() + "/" + obj.pages[index].steps.Count.ToString();
             }
         }
+
+        // 若isOperate，隐藏上下按钮
+        if(isOperate) {
+            UpBtn.SetActive(false);
+            DownBtn.SetActive(false);
+        } else {
+            UpBtn.SetActive(true);
+            DownBtn.SetActive(true);
+        }
     }
 
     private void checkStepState(GameObject step, bool done) {
         var imgColor = step.GetComponentInChildren<Image>().color;
-        if(done) {
-            doneCount++;
-            // 颜色设置为灰色，隐藏√
-            step.GetComponentInChildren<Text>().color = DarkGray;
-            step.GetComponentInChildren<Image>().color = new Color(imgColor.r, imgColor.g, imgColor.b,0);
+        if(isOperate) {
+            if(done) {
+                doneCount++;
+                lastDone = true;
+                // 颜色设置为灰色，隐藏√
+                step.GetComponentInChildren<Text>().color = DarkGray;
+                step.GetComponentInChildren<Image>().color = new Color(imgColor.r, imgColor.g, imgColor.b,0);
+            } else {
+                // 颜色设置为黑色，显示√，若上一个做完了，则当前step字体变大
+                step.GetComponentInChildren<Text>().color = Black;
+                if(lastDone) {
+                   step.GetComponentInChildren<Text>().fontSize = (int)((double)step.GetComponentInChildren<Text>().fontSize * 1.5);
+                }
+                step.GetComponentInChildren<Image>().color = new Color(imgColor.r, imgColor.g, imgColor.b,255);
+                lastDone = false;
+            }
         } else {
-            // 颜色设置为黑色，显示√
+            // 颜色设置为黑色，隐藏√
             step.GetComponentInChildren<Text>().color = Black;
-            step.GetComponentInChildren<Image>().color = new Color(imgColor.r, imgColor.g, imgColor.b,255);
+            step.GetComponentInChildren<Image>().color = new Color(imgColor.r, imgColor.g, imgColor.b,0);
         }
+
     }
     void checkInteractable() {
         if(curPage > 0) {
