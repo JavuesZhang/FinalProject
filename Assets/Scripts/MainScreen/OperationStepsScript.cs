@@ -28,8 +28,6 @@ public class OperationStepsScript : MonoBehaviour
 
     // isOperate表示给的UI设计图的右图。默认为false，左图
     public bool isOperate = false;
-
-    private bool lastDone = false;
     
     private int curPage = 0;
 
@@ -37,8 +35,8 @@ public class OperationStepsScript : MonoBehaviour
 
     private int maxPageIndex;
 
-    private Color DarkGray = new Color(255, 0, 0);
-    private Color Black = new Color(0, 0, 0);
+    private Color DarkGray = Color.grey;
+    private Color Black = Color.black;
     // Start is called before the first frame update
     void Start() {
         obj = ReadJson("/Data/OperationStepsData.json");
@@ -56,63 +54,22 @@ public class OperationStepsScript : MonoBehaviour
         return JsonMapper.ToObject<OperationPages>(js);
     }
 
-    public void loadScreen(int index) {
-        // initialize
-        foreach(var item in steps) {
-            Destroy(item);
-        }
-        doneCount = 0;
-
-        // load new steps
-        for (int i = 0; i < obj.pages[index].steps.Count; i++) {
-            GameObject tmpStep = Instantiate(Step, Content.transform) as GameObject;
-            tmpStep.GetComponentInChildren<Text>().text = (i+1).ToString() + ". " + obj.pages[index].steps[i].name;
-            Debug.Log(obj.pages[index].steps[i].name);
-            checkStepState(tmpStep, obj.pages[index].steps[i].done);
-            tmpStep.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, -30 - (50) * i);
-            steps.Add(tmpStep);
-        }
-
-        Content.GetComponent<RectTransform>().sizeDelta = new Vector2(Content.GetComponent<RectTransform>().sizeDelta.x, 50 * obj.pages[index].steps.Count);
-        foreach(var item in GetComponentsInChildren<Text>()) {
-            if(item.name == "Title") {
-                item.text = obj.pages[index].title;
-            }
-            if(item.name == "Description") {
-                item.text = obj.pages[index].description;
-            }
-            if(item.name == "DoneCount") {
-                item.text = doneCount.ToString() + "/" + obj.pages[index].steps.Count.ToString();
-            }
-        }
-
-        // 若isOperate，隐藏上下按钮
-        if(isOperate) {
-            UpBtn.SetActive(false);
-            DownBtn.SetActive(false);
-        } else {
-            UpBtn.SetActive(true);
-            DownBtn.SetActive(true);
-        }
-    }
-
-    private void checkStepState(GameObject step, bool done) {
+    private void checkStepState(GameObject step, bool done, bool  lastDone) {
         var imgColor = step.GetComponentInChildren<Image>().color;
         if(isOperate) {
             if(done) {
                 doneCount++;
-                lastDone = true;
-                // 颜色设置为灰色，隐藏√
+                // 颜色设置为灰色，显示√
                 step.GetComponentInChildren<Text>().color = DarkGray;
-                step.GetComponentInChildren<Image>().color = new Color(imgColor.r, imgColor.g, imgColor.b,0);
+                Debug.Log(step.GetComponentInChildren<Text>().color);
+                step.GetComponentInChildren<Image>().color = new Color(imgColor.r, imgColor.g, imgColor.b,255);
             } else {
-                // 颜色设置为黑色，显示√，若上一个做完了，则当前step字体变大
+                // 颜色设置为黑色，隐藏√，若上一个做完了，则当前step字体变大
                 step.GetComponentInChildren<Text>().color = Black;
                 if(lastDone) {
                    step.GetComponentInChildren<Text>().fontSize = (int)((double)step.GetComponentInChildren<Text>().fontSize * 1.5);
                 }
-                step.GetComponentInChildren<Image>().color = new Color(imgColor.r, imgColor.g, imgColor.b,255);
-                lastDone = false;
+                step.GetComponentInChildren<Image>().color = new Color(imgColor.r, imgColor.g, imgColor.b,0);
             }
         } else {
             // 颜色设置为黑色，隐藏√
@@ -143,4 +100,59 @@ public class OperationStepsScript : MonoBehaviour
         loadScreen(curPage);
         checkInteractable();
     }
+
+    // 暴露出的接口
+
+    // 加载指定页面
+    public void loadScreen(int index) {
+        // initialize
+        foreach(var item in steps) {
+            Destroy(item);
+        }
+        doneCount = 0;
+
+        // load new steps
+        for (int i = 0; i < obj.pages[index].steps.Count; i++) {
+            GameObject tmpStep = Instantiate(Step, Content.transform) as GameObject;
+            tmpStep.GetComponentInChildren<Text>().text = (i+1).ToString() + ". " + obj.pages[index].steps[i].name;
+            Debug.Log(obj.pages[index].steps[i].name);
+            bool lastDone;
+            if(i == 0){
+                lastDone = false;
+            } else {
+                lastDone = obj.pages[index].steps[i - 1].done;
+            }
+            checkStepState(tmpStep, obj.pages[index].steps[i].done, lastDone);
+            tmpStep.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, -30 - (50) * i);
+            steps.Add(tmpStep);
+        }
+
+        Content.GetComponent<RectTransform>().sizeDelta = new Vector2(Content.GetComponent<RectTransform>().sizeDelta.x, 50 * obj.pages[index].steps.Count);
+        foreach(var item in GetComponentsInChildren<Text>()) {
+            if(item.name == "Title") {
+                item.text = obj.pages[index].title;
+            }
+            if(item.name == "Description") {
+                item.text = obj.pages[index].description;
+            }
+            if(item.name == "DoneCount") {
+                item.text = doneCount.ToString() + "/" + obj.pages[index].steps.Count.ToString();
+            }
+        }
+
+        // 若isOperate，隐藏上下按钮
+        if(isOperate) {
+            UpBtn.SetActive(false);
+            DownBtn.SetActive(false);
+        } else {
+            UpBtn.SetActive(true);
+            DownBtn.SetActive(true);
+        }
+    }
+    // 完成第几个step
+    public void doneStep(int index) {
+        obj.pages[curPage].steps[index].done = true;
+        loadScreen(curPage);
+    }
+
 }

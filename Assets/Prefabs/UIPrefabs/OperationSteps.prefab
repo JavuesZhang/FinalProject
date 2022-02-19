@@ -813,7 +813,7 @@ MonoBehaviour:
   DownBtn: {fileID: 9049465142522142794}
   Step: {fileID: 6604122301676641390, guid: 05c44148b023aad4fa76c4633cf8694a, type: 3}
   Content: {fileID: 332108433250452809}
-  isOperate: 0
+  isOperate: 1
 --- !u!1 &7464878557443204363
 GameObject:
   m_ObjectHideFlags: 0

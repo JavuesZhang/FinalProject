@@ -52,6 +52,16 @@ public class RecordTableScript : MonoBehaviour
         return JsonMapper.ToObject<RecordPages>(js);
     }
 
+    // 暴露的接口
+
+    // ！！请在load前先写好error信息！
+    public void insertError(int pageIndex, int sectionIndex, int stepIndex, string description, double punishment) {
+        RecordError err = new RecordError();
+        err.index = stepIndex;
+        err.description = description;
+        err.punishment = punishment;
+        obj.pages[pageIndex].sections[sectionIndex].errors.Add(err);
+    }
     public void loadScreen(int index) {
         // initialize
         foreach(var item in records) {
@@ -76,7 +86,7 @@ public class RecordTableScript : MonoBehaviour
             }
             foreach(Transform t in tmpTitle.GetComponentsInChildren<Transform>()) {
                 if(t.name == "TotalScore") {
-                    t.GetComponent<RectTransform>().anchoredPosition = new Vector2(75 / 2 + section.title.Length * 18, t.GetComponent<RectTransform>().anchoredPosition.y);
+                    t.GetComponent<RectTransform>().anchoredPosition = new Vector2(70 + section.title.Length * 18, t.GetComponent<RectTransform>().anchoredPosition.y);
                 }  
             }
             tmpTitle.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, -30 * recordCount);
